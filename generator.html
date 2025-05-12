@@ -30,11 +30,19 @@
   <div id="methodsContainer"></div>
   <button class="button" onclick="addMethod()">＋ メソッドを追加</button>
   <button class="button" onclick="generateHTML()">🚀 HTMLを生成</button>
+  <button class="button" onclick="resetForm()">🔄 リセット</button>
 
   <h3>✨ 生成されたHTML:</h3>
   <div class="output" id="outputHTML"></div>
 
   <script>
+    function resetForm() {
+        document.getElementById("className").value = "";
+        document.getElementById("methodsContainer").innerHTML = "";
+        document.getElementById("outputHTML").textContent = "";
+        methodCount = 0;
+    }
+    
     let methodCount = 0;
 
     function addMethod() {
