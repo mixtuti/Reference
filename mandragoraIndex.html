@@ -333,6 +333,544 @@
 </div>
   </div>
 </div>
+<div class="method-block" data-class="BreedingConfirmStateHandler" data-method="BreedingConfirmStateHandler" data-labels="public class">
+  <div class="method-header">BreedingConfirmStateHandler()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmStateHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>配合確認画面におけるユーザーの入力（決定・キャンセル）を処理し、ゲームの状態遷移や関連するデータ操作（アイテムの返却、タイマーのリセットなど）を管理する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirmStateHandler" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmStateHandler</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム呼び出され、現在の状態がターゲット状態であれば、入力に応じてキャンセルまたは決定処理を非同期で実行します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirmStateHandler" data-method="HandleCancelKey" data-labels="public async">
+  <div class="method-header">HandleCancelKey()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmStateHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>キャンセルキーが押されたときの処理</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirmStateHandler" data-method="HandleConfirmKey" data-labels="public async">
+  <div class="method-header">HandleConfirmKey()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmStateHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>決定キーが押されたときの処理</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+<div class="method-block" data-class="BreedingConfirmText" data-method="BreedingConfirmText" data-labels="public class">
+  <div class="method-header">BreedingConfirmText()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmText</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>特定のBreedingStateになった際に確認用のダイアログ（吹き出し）を表示し、関連する会話処理を管理。R3 のリアクティブプログラミングを利用して、BreedingState の変更を監視し、適切なタイミングでダイアログの表示/非表示を切り替えます。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirmText" data-method="Start" data-labels="private">
+  <div class="method-header">Start()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmText</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>オブジェクトの初期化時に、ステートが一致しない場合は吹き出しを非表示にし、ステートの変更を監視する購読処理を設定します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirmText" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmText</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、現在のステートを取得し、ターゲットと合致したときはダイアログを表示する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirmText" data-method="OnDestroy" data-labels="private">
+  <div class="method-header">OnDestroy()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmText</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが無効になったときに、イベントの購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirmText" data-method="HandleStateChanged" data-labels="private">
+  <div class="method-header">HandleStateChanged(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirmText</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>BreedingStateControllerのStateが変更された際に呼び出されるメソッド。newStateがtargetStateと一致する場合にダイアログを表示し、DialogueManagerを初期化。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 変更後のBreedingState</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+<div class="method-block" data-class="BreedingImageOnLoad" data-method="BreedingImageOnLoad" data-labels="public class">
+  <div class="method-header">BreedingImageOnLoad()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingImageOnLoad</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>BreedingImageOnLoad クラスは、特定の BreedingState になった際に、保存されているアイテムの配合画像または終了画像をImageコンポーネントに表示。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingImageOnLoad" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingImageOnLoad</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、LoadDelayedを非同期で呼び出し、イベントを購読する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingImageOnLoad" data-method="LoadDelayed" data-labels="private async">
+  <div class="method-header">LoadDelayed()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingImageOnLoad</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>遅延ロード処理。主にOnEnable直後のフレームで処理を実行するために使用。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingImageOnLoad" data-method="LoadAndDisplayBreedingImage" data-labels="private">
+  <div class="method-header">LoadAndDisplayBreedingImage()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingImageOnLoad</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>保存されているアイテムIDをロードし、対応する配合画像をImageコンポーネントに表示。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingImageOnLoad" data-method="" data-labels="private">
+  <div class="method-header">HandleStateChanged(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingImageOnLoad</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>BreedingState が変更された際に呼び出されるメソッド。現在のStateがfinishStateであれば、Spriteを終了用のものに切り替える。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 変更後の BreedingState</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingImageOnLoad" data-method="SpriteChange" data-labels="private">
+  <div class="method-header">SpriteChange()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingImageOnLoad</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>targetImageのSpriteをfinishSpriteに変更し、Imageコンポーネントを有効にする。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingManager" data-method="BreedingManager" data-labels="public class">
+  <div class="method-header">BreedingManager()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingManager</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>BreedingManagerクラスは、親アイテムの組み合わせに基づいて配合を実行し、設定された配合ルールと確率に従って結果のアイテムIDを決定。配合バフの影響も考慮。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingManager" data-method="PerformBreeding" data-labels="public">
+  <div class="method-header">PerformBreeding()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>配合を開始し、結果のItemIDを取得します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>int</code> – 配合結果の ItemID (見つからない場合は 0)。
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingManager" data-method="DetermineBreedingResult" data-labels="private">
+  <div class="method-header">DetermineBreedingResult(id1, id2)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingManager</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>配合ルールに基づいて重み付けされた確率で結果のItemIDを決定します。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int id1</code> – 親1のItemID</li>
+    <li><code>int id2</code> – 親2のItemID</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>int</code> – 配合結果の ItemID (見つからない場合は 0)。
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingRecipe" data-method="BreedingRecipe" data-labels="public class">
+  <div class="method-header">BreedingRecipe()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingRecipe</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>親アイテムの組み合わせと、そこから得られる可能性のある結果とその確率（重み）を定義。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="PossibleResult" data-method="PossibleResult" data-labels="public class">
+  <div class="method-header">PossibleResult()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">PossibleResult</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>配合によって得られる可能性のある個々の結果（アイテムID）と、その出現確率の重みを定義。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingMiniInventoryView" data-method="BreedingMiniInventoryView" data-labels="public class">
+  <div class="method-header">BreedingMiniInventoryView()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingMiniInventoryView</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>特定のBreedingStateになった際に、GameObjectを非アクティブにする。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingMiniInventoryView" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingMiniInventoryView</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、ステートがターゲットステートと同じ場合にオブジェクトを無効にする</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingOpenBook" data-method="BreedingOpenBook" data-labels="public class">
+  <div class="method-header">BreedingOpenBook()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingOpenBook</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>指定された入力アクション（bookKey）が押された際に、配合図鑑のUIの表示/非表示を切り替える。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingOpenBook" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingOpenBook</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム呼び出され、特定のボタンが押された際に、ゲームオブジェクトの有効・無効を切り替える。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="BreedingResult" data-labels="public class">
+  <div class="method-header">BreedingResult()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>配合処理の結果を管理し、UIの表示更新、アイテムの付与、および次のゲーム状態への遷移を制御します。初回抽選とそれ以降の表示処理を分けて管理。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、初回抽選フラグを確認し、フラグに応じて初回抽選を行うか結果をロードする。そして、家ベントの購読も行う。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="LoadLottery" data-labels="public">
+  <div class="method-header">LoadLottery()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>初回抽選フラグをロードします。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="Lottery" data-labels="private">
+  <div class="method-header">Lottery()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>配合マネージャーに配合を実行させ、結果のアイテムデータを取得。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="HandleStateChanged" data-labels="private">
+  <div class="method-header">HandleStateChanged(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>BreedingState が変更された際に呼び出されるメソッド。現在のStateがtargetStateになると、配合結果の画像を表示し、関連するデータを削除。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 変更後の BreedingState</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム呼び出され、現在のStateが結果表示Stateであり、かつ次の状態への移行が許可されているかどうかを確認する。許可されている場合に特定のキーを押すと次の状態への移行処理を非同期で実行する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="HandleConfirmAsync" data-labels="private async">
+  <div class="method-header">HandleConfirmAsync()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>決定キーが押された際の非同期処理。結果アイテムをインベントリに追加し、次のゲーム状態へ遷移します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingResult" data-method="SaveLottly" data-labels="public">
+  <div class="method-header">SaveLottly(isLottly)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingResult</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>初回抽選フラグを保存し、配合の抽選を行います。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>bool isLottly</code> – 初回抽選を行ったかどうかを示す真偽値。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
     </div>
 
     <script src="js/reference-filter.js"></script>
