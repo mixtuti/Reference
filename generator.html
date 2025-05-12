@@ -10,6 +10,14 @@
     .button { margin: 5px 0; padding: 6px 12px; font-weight: bold; cursor: pointer; }
     .output { white-space: pre-wrap; background: #f3f3f3; padding: 10px; font-family: monospace; border: 1px solid #ccc; border-radius: 5px; }
     label { font-weight: bold; display: block; margin-top: 8px; }
+    .mlabel { color: #333; margin-right: 8px; font-weight: normal; }
+    .clabel { color: #005b96; font-weight: bold; }
+    .method-block { border: 1px solid #ddd; margin-top: 20px; padding: 10px; border-radius: 5px; background: #f9f9f9; }
+    .method-header { font-size: 18px; font-weight: bold; }
+    .method-content { margin-top: 10px; }
+    .param-box, .return-box { margin-top: 15px; }
+    .param-box ul { list-style: none; padding-left: 0; }
+    .param-box li { margin-bottom: 5px; }
   </style>
 </head>
 <body>
@@ -17,7 +25,7 @@
   <h2>📦 クラス単位でメソッドHTML生成</h2>
 
   <label>クラス名:</label>
-  <input type="text" id="className" placeholder="例: AnimationCreator" />
+  <input type="text" id="className" placeholder="例: AudioFileManager" />
 
   <div id="methodsContainer"></div>
   <button class="button" onclick="addMethod()">＋ メソッドを追加</button>
@@ -37,17 +45,44 @@
       div.className = "method-form";
       div.innerHTML = `
         <label>メソッド名:</label>
-        <input type="text" name="methodName${methodCount}">
+        <input type="text" name="methodName${methodCount}" placeholder="例: CombineArrays">
         <label>ラベル (スペース区切り):</label>
         <input type="text" name="labels${methodCount}">
         <label>説明:</label>
         <textarea name="description${methodCount}" rows="2"></textarea>
-        <label>引数（1行に1つ、型 名）:</label>
-        <textarea name="params${methodCount}" rows="2"></textarea>
         <label>戻り値:</label>
         <input type="text" name="returnType${methodCount}" placeholder="void, int など">
+        <label>戻り値説明:</label>
+        <textarea name="returnDescription${methodCount}" rows="2"></textarea>
+
+        <div class="params-container" id="params-container${methodCount}">
+          <label>引数（1行に1つ、型 名）:</label>
+          <div class="param-item" id="param-item${methodCount}-1">
+            <input type="text" name="paramType${methodCount}-1" placeholder="型">
+            <input type="text" name="paramName${methodCount}-1" placeholder="引数名">
+            <input type="text" name="paramDescription${methodCount}-1" placeholder="引数の説明">
+          </div>
+        </div>
+        <button class="button" onclick="addParam(${methodCount})">＋ 引数を追加</button>
       `;
       container.appendChild(div);
+    }
+
+    function addParam(methodIndex) {
+      const paramContainer = document.getElementById(`params-container${methodIndex}`);
+      const paramCount = paramContainer.getElementsByClassName('param-item').length + 1;
+      
+      const paramDiv = document.createElement("div");
+      paramDiv.className = "param-item";
+      paramDiv.id = `param-item${methodIndex}-${paramCount}`;
+
+      paramDiv.innerHTML = ` 
+        <input type="text" name="paramType${methodIndex}-${paramCount}" placeholder="型">
+        <input type="text" name="paramName${methodIndex}-${paramCount}" placeholder="引数名">
+        <input type="text" name="paramDescription${methodIndex}-${paramCount}" placeholder="引数の説明">
+      `;
+
+      paramContainer.appendChild(paramDiv);
     }
 
     function generateHTML() {
@@ -58,22 +93,37 @@
         const method = document.querySelector(`[name=methodName${i}]`).value.trim();
         const labels = document.querySelector(`[name=labels${i}]`).value.trim();
         const description = document.querySelector(`[name=description${i}]`).value.trim();
-        const params = document.querySelector(`[name=params${i}]`).value.trim().split('\n').filter(p => p);
         const returnType = document.querySelector(`[name=returnType${i}]`).value.trim();
+        const returnDescription = document.querySelector(`[name=returnDescription${i}]`).value.trim();
+
+        const params = [];
+        let paramIndex = 1;
+        while (document.querySelector(`[name=paramType${i}-${paramIndex}]`)) {
+          const paramType = document.querySelector(`[name=paramType${i}-${paramIndex}]`).value.trim();
+          const paramName = document.querySelector(`[name=paramName${i}-${paramIndex}]`).value.trim();
+          const paramDescription = document.querySelector(`[name=paramDescription${i}-${paramIndex}]`).value.trim();
+          if (paramType && paramName) {
+            params.push({ type: paramType, name: paramName, description: paramDescription });
+          }
+          paramIndex++;
+        }
+
+        // 引数を methodHeader の () 内に挿入
+        const paramList = params.map(p => p.name).join(', ');
 
         const labelSpans = labels.split(/\s+/).map(label => `<span class="mlabel">${label}</span>`).join(' ');
+
         const paramHTML = params.length > 0
           ? `<div class="param-box">\n  <strong>引数:</strong>\n  <ul>\n${params.map(p => {
-              const [type, name] = p.trim().split(/\s+/);
-              return `    <li><code>${type} ${name}</code></li>`;
+              return `    <li><code>${p.type} ${p.name}</code> – ${p.description}</li>`;
             }).join('\n')}\n  </ul>\n</div>\n`
           : '';
 
-        const returnHTML = `<div class="return-box">\n  <strong>戻り値:</strong> ${returnType ? `<code>${returnType}</code>` : "なし"}\n</div>`;
+        const returnHTML = `<div class="return-box">\n  <strong>戻り値:</strong> ${returnType ? `<code>${returnType}</code>` : "なし"} – ${returnDescription || "説明なし"}\n</div>`;
 
         const block = `
 <div class="method-block" data-class="${className}" data-method="${method}" data-labels="${labels}">
-  <div class="method-header">${method}()</div>
+  <div class="method-header">${method}(${paramList})</div>
   <div class="method-content">
     <div>
       <span class="clabel">${className}</span>
