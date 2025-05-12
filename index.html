@@ -25,7 +25,7 @@
     🔍 修飾子 / ラベル:
     <input type="text" id="labelSearch" placeholder="例: static">
   </div>
-  
+
   <div class="scrollable-content">
     <div class="method-block" data-class="AnimationCreator" data-method="ShowWindow" data-labels="public static MenuItem">
       <div class="method-header">ShowWindow()</div>
@@ -1733,6 +1733,109 @@
       </ul>
     </div>
     <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TextureImporterExtension" data-method="OnPreprocessTexture" data-labels="private">
+      <div class="method-header">OnPreprocessTexture()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TextureImporterExtension</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>アセットインポート直前に呼ばれ、画像が 2D スプライトとして扱われるように TextureImporter の設定を変更します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> <code>void</code> – なし
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="EditFromHierarchy" data-method="Initialize" data-labels="private static">
+      <div class="method-header">Initialize()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">EditFromHierarchy</span>
+          <span class="mlabel">private</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Unity エディター起動時に hierarchyWindowItemOnGUI イベントへ OnGUI を登録する初期化処理。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="EditFromHierarchy" data-method="OnGUI" data-labels="private static">
+      <div class="method-header">OnGUI(instanceID, selectionRect)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">EditFromHierarchy</span>
+          <span class="mlabel">private</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Hierarchy ウィンドウの各 GameObject に対して、アクティブ状態のトグルとコンポーネントアイコンを描画し、クリックで編集ウィンドウを開く。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>int instanceID</code> – 描画対象オブジェクトのインスタンス ID</li>
+        <li><code>Rect selectionRect</code> – Hierarchy 上のオブジェクト表示範囲の矩形</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="EditFromHierarchy" data-method="ComponentEditorWindow" data-labels="private class">
+      <div class="method-header">ComponentEditorWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">EditFromHierarchy</span>
+          <span class="mlabel">private</span> <span class="mlabel">class</span>
+        </div>
+        <div class="description">
+          <p>選択されたコンポーネントのプロパティを表示・編集するための専用エディターウィンドウ。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="EditFromHierarchy" data-method="OnEnable" data-labels="private">
+      <div class="method-header">OnEnable()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">EditFromHierarchy</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>ウィンドウが有効になったときに呼び出されるが、現状では処理なし（スタイル初期化は OnGUI 内）。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="EditFromHierarchy" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">EditFromHierarchy</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>選択中のコンポーネント情報（名前・アイコン）とそのプロパティをスクロールビュー内に表示し、編集可能にする。</p>
+        </div>
+        <div class="return-box">
       <strong>戻り値:</strong> <code>void</code> – なし
     </div>
       </div>
