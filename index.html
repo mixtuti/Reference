@@ -28,7 +28,73 @@
     <input type="text" id="labelSearch" placeholder="例: static">
   </div>
 
-  <!-- メソッド: UpdateBuildSettings -->
+  <div class="method-block" data-class="AnimationCreator" data-method="ShowWindow" data-labels="public static MenuItem">
+    <div class="method-header">ShowWindow()</div>
+    <div class="method-content">
+      <div>
+        <span class="clabel">AnimationCreator</span>
+        <span class="mlabel">public</span>
+        <span class="mlabel">static</span>
+        <span class="mlabel">MenuItem</span>
+      </div>
+      <div class="description">
+        <p>Unity のメニューに「Animation Creator」を追加し、ウィンドウを表示します。</p>
+      </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
+      </div>
+    </div>
+  </div>
+
+  <div class="method-block" data-class="AnimationCreator" data-method="OnGUI" data-labels="private override">
+    <div class="method-header">OnGUI()</div>
+    <div class="method-content">
+      <div>
+        <span class="clabel">AnimationCreator</span>
+        <span class="mlabel">private</span>
+        <span class="mlabel">override</span>
+      </div>
+      <div class="description">
+        <p>エディタウィンドウの GUI を描画。画像のドラッグ＆ドロップ、フレーム確認、アニメーション作成などの機能を提供します。</p>
+      </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
+      </div>
+    </div>
+  </div>
+
+  <div class="method-block" data-class="AnimationCreator" data-method="CreateAnimation" data-labels="private">
+    <div class="method-header">CreateAnimation()</div>
+    <div class="method-content">
+      <div>
+        <span class="clabel">AnimationCreator</span>
+        <span class="mlabel">private</span>
+      </div>
+      <div class="description">
+        <p>登録された画像を元に、SpriteRenderer 用のアニメーションクリップ（.anim）を生成・保存します。</p>
+      </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
+      </div>
+    </div>
+  </div>
+
+  <div class="method-block" data-class="AnimationCreator" data-method="ResetFields" data-labels="private">
+    <div class="method-header">ResetFields()</div>
+    <div class="method-content">
+      <div>
+        <span class="clabel">AnimationCreator</span>
+        <span class="mlabel">private</span>
+      </div>
+      <div class="description">
+        <p>フレームリストとフレームレートを初期化してリセットします。</p>
+      </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
+      </div>
+    </div>
+  </div>
+
   <div class="method-block" data-class="ScenesAutoUpdater" data-method="UpdateBuildSettings" data-labels="public static MenuItem">
     <div class="method-header">UpdateBuildSettings()</div>
     <div class="method-content">
@@ -49,10 +115,12 @@
       <div class="ref">
         初期化時にも実行されます（<code>static constructor</code>による）。
       </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
+      </div>
     </div>
   </div>
 
-  <!-- メソッド: コンストラクタ -->
   <div class="method-block" data-class="ScenesAutoUpdater" data-method="constructor" data-labels="static constructor">
     <div class="method-header">ScenesAutoUpdater() [static constructor]</div>
     <div class="method-content">
@@ -61,6 +129,9 @@
       <span class="mlabel">constructor</span>
       <div class="description">
         <p>Unityエディタが起動したタイミングで <code>UpdateBuildSettings()</code> を自動実行します。</p>
+      </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
       </div>
     </div>
   </div>
@@ -77,6 +148,9 @@
       <div class="description">
         <p>Unity のウィンドウメニューに「Audio File Manager」を追加し、選択時にウィンドウを表示します。</p>
       </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
+      </div>
     </div>
   </div>
 
@@ -91,6 +165,9 @@
       <div class="description">
         <p>エディタウィンドウの GUI を定義します。オーディオファイルの表示、タイトル編集、保存処理などを提供します。</p>
       </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
+      </div>
     </div>
   </div>
 
@@ -103,6 +180,9 @@
       </div>
       <div class="description">
         <p>指定されたフォルダ（およびオプションで子階層）内の .wav / .mp3 ファイルを取得し、リストに格納します。</p>
+      </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> なし（<code>void</code>）
       </div>
     </div>
   </div>
