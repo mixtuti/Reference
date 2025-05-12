@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>クラス・メソッドHTMLドキュメント生成</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+    input, textarea { width: 100%; margin-bottom: 8px; padding: 6px; }
+    .method-form { border: 1px solid #ccc; padding: 10px; margin-bottom: 15px; border-radius: 5px; background: #f9f9f9; }
+    .button { margin: 5px 0; padding: 6px 12px; font-weight: bold; cursor: pointer; }
+    .output { white-space: pre-wrap; background: #f3f3f3; padding: 10px; font-family: monospace; border: 1px solid #ccc; border-radius: 5px; }
+    label { font-weight: bold; display: block; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+  <h2>📦 クラス単位でメソッドHTML生成</h2>
+
+  <label>クラス名:</label>
+  <input type="text" id="className" placeholder="例: AnimationCreator" />
+
+  <div id="methodsContainer"></div>
+  <button class="button" onclick="addMethod()">＋ メソッドを追加</button>
+  <button class="button" onclick="generateHTML()">🚀 HTMLを生成</button>
+
+  <h3>✨ 生成されたHTML:</h3>
+  <div class="output" id="outputHTML"></div>
+
+  <script>
+    let methodCount = 0;
+
+    function addMethod() {
+      methodCount++;
+      const container = document.getElementById("methodsContainer");
+
+      const div = document.createElement("div");
+      div.className = "method-form";
+      div.innerHTML = `
+        <label>メソッド名:</label>
+        <input type="text" name="methodName${methodCount}">
+        <label>ラベル (スペース区切り):</label>
+        <input type="text" name="labels${methodCount}">
+        <label>説明:</label>
+        <textarea name="description${methodCount}" rows="2"></textarea>
+        <label>引数（1行に1つ、型 名）:</label>
+        <textarea name="params${methodCount}" rows="2"></textarea>
+        <label>戻り値:</label>
+        <input type="text" name="returnType${methodCount}" placeholder="void, int など">
+      `;
+      container.appendChild(div);
+    }
+
+    function generateHTML() {
+      const className = document.getElementById("className").value.trim();
+      const htmlParts = [];
+
+      for (let i = 1; i <= methodCount; i++) {
+        const method = document.querySelector(`[name=methodName${i}]`).value.trim();
+        const labels = document.querySelector(`[name=labels${i}]`).value.trim();
+        const description = document.querySelector(`[name=description${i}]`).value.trim();
+        const params = document.querySelector(`[name=params${i}]`).value.trim().split('\n').filter(p => p);
+        const returnType = document.querySelector(`[name=returnType${i}]`).value.trim();
+
+        const labelSpans = labels.split(/\s+/).map(label => `<span class="mlabel">${label}</span>`).join(' ');
+        const paramHTML = params.length > 0
+          ? `<div class="param-box">\n  <strong>引数:</strong>\n  <ul>\n${params.map(p => {
+              const [type, name] = p.trim().split(/\s+/);
+              return `    <li><code>${type} ${name}</code></li>`;
+            }).join('\n')}\n  </ul>\n</div>\n`
+          : '';
+
+        const returnHTML = `<div class="return-box">\n  <strong>戻り値:</strong> ${returnType ? `<code>${returnType}</code>` : "なし"}\n</div>`;
+
+        const block = `
+<div class="method-block" data-class="${className}" data-method="${method}" data-labels="${labels}">
+  <div class="method-header">${method}()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">${className}</span>
+      ${labelSpans}
+    </div>
+    <div class="description">
+      <p>${description}</p>
+    </div>
+    ${paramHTML}${returnHTML}
+  </div>
+</div>`.trim();
+
+        htmlParts.push(block);
+      }
+
+      document.getElementById("outputHTML").textContent = htmlParts.join('\n\n');
+    }
+  </script>
+</body>
+</html>
