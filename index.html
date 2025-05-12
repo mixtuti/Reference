@@ -16,10 +16,8 @@
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-  <h1>コードリファレンス</h1>
-
   <div class="search-box">
+    <h1>コードリファレンス</h1>
     🔍 クラス名:
     <input type="text" id="classSearch" placeholder="例: ScenesAutoUpdater">
     🔍 メソッド名:
@@ -27,272 +25,1721 @@
     🔍 修飾子 / ラベル:
     <input type="text" id="labelSearch" placeholder="例: static">
   </div>
+  
+  <div class="scrollable-content">
+    <div class="method-block" data-class="AnimationCreator" data-method="ShowWindow" data-labels="public static MenuItem">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AnimationCreator</span>
+          <span class="mlabel">public</span>
+          <span class="mlabel">static</span>
+          <span class="mlabel">MenuItem</span>
+        </div>
+        <div class="description">
+          <p>Unity のメニューに「Animation Creator」を追加し、ウィンドウを表示します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
 
-  <div class="method-block" data-class="AnimationCreator" data-method="ShowWindow" data-labels="public static MenuItem">
-    <div class="method-header">ShowWindow()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AnimationCreator</span>
-        <span class="mlabel">public</span>
+    <div class="method-block" data-class="AnimationCreator" data-method="OnGUI" data-labels="private override">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AnimationCreator</span>
+          <span class="mlabel">private</span>
+          <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>エディタウィンドウの GUI を描画。画像のドラッグ＆ドロップ、フレーム確認、アニメーション作成などの機能を提供します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="AnimationCreator" data-method="CreateAnimation" data-labels="private">
+      <div class="method-header">CreateAnimation()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AnimationCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>登録された画像を元に、SpriteRenderer 用のアニメーションクリップ（.anim）を生成・保存します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="AnimationCreator" data-method="ResetFields" data-labels="private">
+      <div class="method-header">ResetFields()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AnimationCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>フレームリストとフレームレートを初期化してリセットします。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="AudioFileManager" data-method="OnGUI" data-labels="private override">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AudioFileManager</span>
+          <span class="mlabel">private</span>
+          <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>エディタウィンドウの GUI を定義します。オーディオファイルの表示、タイトル編集、保存処理などを提供します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="AudioFileManager" data-method="GetAudioFiles" data-labels="private">
+      <div class="method-header">GetAudioFiles()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AudioFileManager</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定されたフォルダ（およびオプションで子階層）内の .wav / .mp3 ファイルを取得し、リストに格納します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="AudioFileManager" data-method="CombineArrays" data-labels="private">
+      <div class="method-header">CombineArrays(array1, array2)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AudioFileManager</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>2つの文字列配列を結合し、1つの配列として返します。</p>
+        </div>
+        <div class="param-box">
+          <strong>引数:</strong>
+          <ul>
+            <li><code>string[] array1</code> – 結合元の1つ目の文字列配列</li>
+            <li><code>string[] array2</code> – 結合元の2つ目の文字列配列</li>
+          </ul>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> 
+          <code>string[]</code> – 結合された文字列の配列
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="AudioFileManager" data-method="GetAudioClipDuration" data-labels="private">
+      <div class="method-header">GetAudioClipDuration(filePath)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AudioFileManager</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>AudioClip をロードし、その再生時間（秒数）を取得します。</p>
+        </div>
+        <div class="param-box">
+          <strong>引数:</strong>
+          <ul>
+            <li><code>string filePath</code> – 調査対象の AudioClip のファイルパス（Assets パス）</li>
+          </ul>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> 
+          <code>float</code> – AudioClip の長さ（秒）。ロード失敗時は <code>0f</code> を返します。
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="AudioFileManager" data-method="SaveAudioTitle" data-labels="private">
+      <div class="method-header">SaveAudioTitle(filePath, newTitle)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AudioFileManager</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>タイトルの変更をファイル名として反映させ、AssetDatabase 上でリネーム処理を行います。</p>
+        </div>
+        <div class="param-box">
+          <strong>引数:</strong>
+          <ul>
+            <li><code>string filePath</code> – 元のファイルパス</li>
+            <li><code>string newTitle</code> – 新しいファイル名（拡張子なし）</li>
+          </ul>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="BatchRenameEditor" data-method="ShowWindow()" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">BatchRenameEditor</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>BatchRenameEditor ウィンドウを Unity エディタに表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> なし（<code>void</code>）
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="BatchRenameEditor" data-method="OnGUI()" data-labels="private override">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">BatchRenameEditor</span>
+          <span class="mlabel">private</span> <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>Unity エディタのウィンドウに UI を描画します。入力フィールドやボタン、プレビューが含まれます。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> なし（<code>void</code>）
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="BatchRenameEditor" data-method="RenameObjects()" data-labels="private">
+      <div class="method-header">RenameObjects()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">BatchRenameEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>選択中の GameObject を指定されたルールに従って一括リネームします。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> なし（<code>void</code>）
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="BatchRenameEditor" data-method="ShowPreview()" data-labels="private">
+      <div class="method-header">ShowPreview()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">BatchRenameEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>リネーム後のサンプル名（最大3件）をプレビューとして表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> なし（<code>void</code>）
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ColliderScalerEditor" data-method="ShowWindow" data-labels="static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ColliderScalerEditor</span>
+          <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>このエディタウィンドウを表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ColliderScalerEditor" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ColliderScalerEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>エディタウィンドウのUIを描画します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ColliderScalerEditor" data-method="ScaleCollider" data-labels="private">
+      <div class="method-header">ScaleCollider(selectedCollider, scaleMultiplier)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ColliderScalerEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定されたポリゴンコライダーのサイズをスケール倍率で変更します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>PolygonCollider2D selectedCollider</code> – サイズを変更するポリゴンコライダー</li>
+        <li><code>float scaleMultiplier</code> – コライダーサイズのスケール倍率</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CreateAnimatorController" data-method="OnInspectorGUI" data-labels="public override">
+      <div class="method-header">OnInspectorGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CreateAnimatorController</span>
+          <span class="mlabel">public</span> <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>Animator にアタッチされているかどうかを確認し、未設定ならコントローラー作成ボタンを表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CreateAnimatorController" data-method="CreateController" data-labels="private">
+      <div class="method-header">CreateController()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CreateAnimatorController</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>新しい AnimatorController を作成し、指定された Animator にアタッチします。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Unity メニューからウィンドウを開き、CSV エディタのインスタンスを作成します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>CSV エディタのユーザーインターフェースを描画します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="CreateCSV" data-labels="private">
+      <div class="method-header">CreateCSV()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>新しい CSV ファイルを作成し、空のテーブルを初期化します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="LoadCSV" data-labels="private">
+      <div class="method-header">LoadCSV()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定されたCSVファイルを読み込み、内部データに展開します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="AddRow" data-labels="private">
+      <div class="method-header">AddRow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>テーブルに空の行を追加します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="RemoveRow" data-labels="private">
+      <div class="method-header">RemoveRow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>最後の行をテーブルから削除します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="AddColumn" data-labels="private">
+      <div class="method-header">AddColumn()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>テーブルの各行に新しい列（空セル）を追加します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="RemoveColumn" data-labels="private">
+      <div class="method-header">RemoveColumn()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>各行から最後の列を削除します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="SaveCSV" data-labels="private">
+      <div class="method-header">SaveCSV()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>内部データを現在のパスにCSV形式で保存します</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="HandleDragAndDrop" data-labels="private">
+      <div class="method-header">HandleDragAndDrop()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>マウスイベントに応じて行・列のドラッグ処理を制御します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="SwapRows" data-labels="private">
+      <div class="method-header">SwapRows(rowIndex1, rowIndex2)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定された行インデックスのデータを入れ替えます。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>int rowIndex1</code> – 入れ替え対象の1つ目の行インデックス</li>
+        <li><code>int rowIndex2</code> – 入れ替え対象の2つ目の行インデックス</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="SwapColumns" data-labels="private">
+      <div class="method-header">SwapColumns(columnIndex1, columnIndex2)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>各行に対して、指定された2つの列の値を入れ替えます。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>int columnIndex1</code> – 入れ替え対象の1つ目の列インデックス</li>
+        <li><code>int columnIndex2</code> – 入れ替え対象の2つ目の列インデックス</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CSVEditor" data-method="ReplaceDelimiter" data-labels="private">
+      <div class="method-header">ReplaceDelimiter()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CSVEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>CSVファイルの区切り文字を選択した内容に基づいて一括置き換えします。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="CustomInputMappingEditor" data-method="OnInspectorGUI" data-labels="public override">
+      <div class="method-header">OnInspectorGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">CustomInputMappingEditor</span>
+          <span class="mlabel">public</span> <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>Unity インスペクター上で CustomInputMapping スクリプトにカスタムボタンを追加します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesDrawer" data-method="FavoritesDrawer" data-labels="static constructor">
+      <div class="method-header">FavoritesDrawer()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesDrawer</span>
+          <span class="mlabel">static</span> <span class="mlabel">constructor</span>
+        </div>
+        <div class="description">
+          <p>エディタの初期化時に呼び出され、ハートアイコンのテクスチャを設定し、プロジェクトウィンドウのGUIイベントにコールバックを登録します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesDrawer" data-method="OnProjectWindowItemGUI" data-labels="private static">
+      <div class="method-header">OnProjectWindowItemGUI(guid, rect)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesDrawer</span>
+          <span class="mlabel">private</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>プロジェクトウィンドウの各アイテムにハート型のアイコンボタンを描画し、クリックによりお気に入りの追加・削除を切り替えます。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string guid</code> – 対象アセットのGUID。</li>
+        <li><code>Rect rect</code> – アイテムの描画領域</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesManager" data-method="AddFavorite" data-labels="public static">
+      <div class="method-header">AddFavorite(assetPath)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesManager</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>指定されたアセットパスをお気に入りリストに追加し、保存します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string assetPath</code> – 追加するアセットのパス。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesManager" data-method="RemoveFavorite" data-labels="public static">
+      <div class="method-header">RemoveFavorite(assetPath)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesManager</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>指定されたアセットパスをお気に入りリストから削除し、変更を保存します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string assetPath</code> – 削除するアセットのパス。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesManager" data-method="IsFavorite" data-labels="public static">
+      <div class="method-header">IsFavorite(assetPath)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesManager</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>指定されたアセットパスが現在お気に入りに登録されているかを確認します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string assetPath</code> – チェック対象のアセットのパス。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>bool</code> – お気に入りに含まれていれば true、そうでなければ false を返します。
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesManager" data-method="GetFavorites" data-labels="public static">
+      <div class="method-header">GetFavorites()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesManager</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>お気に入りに登録されたすべてのアセットパスをリストとして取得します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>List<string></code> – お気に入りに登録されているすべてのアセットパスのリストを返します。
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesManager" data-method="SaveFavorites" data-labels="private static">
+      <div class="method-header">SaveFavorites()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesManager</span>
+          <span class="mlabel">private</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>現在の favoriteAssets セットを Favorites.txt ファイルに保存します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesManager" data-method="LoadFavorites" data-labels="private static">
+      <div class="method-header">LoadFavorites()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesManager</span>
+          <span class="mlabel">private</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Favorites.txt からお気に入りデータを読み込み、セットに反映します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesWindow" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesWindow</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>お気に入りウィンドウを表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesWindow" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesWindow</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>エディタウィンドウの描画を担当します。ユーザーインターフェースを描画し、ユーザーの入力を処理します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="FavoritesWindow" data-method="GetAssetIcon" data-labels="private">
+      <div class="method-header">GetAssetIcon(assetPath)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">FavoritesWindow</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>アセットのアイコンを取得します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string assetPath</code> – アイコンを取得したいアセットのパス。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>Texture2D</code> – アセットのアイコンをTexture2D形式で返します。
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="IconViewerWindow" data-method="Open" data-labels="public static">
+      <div class="method-header">Open()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">IconViewerWindow</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Unityエディタ上にアイコンビューアウィンドウを表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="IconViewerWindow" data-method="OnEnable" data-labels="private">
+      <div class="method-header">OnEnable()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">IconViewerWindow</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>アイコンビューアウィンドウが有効化された際に、ビルトインアイコンの読み込みとFoldout初期化を行います。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="IconViewerWindow" data-method="FilterField" data-labels="public static">
+      <div class="method-header">FilterField(filter, repaintCallback, controlName)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">IconViewerWindow</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>フィルタ入力用の検索フィールドを描画し、文字列を返します。Enterキーやマウスクリックでフォーカス処理も管理します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string filter</code> – 現在のフィルタ文字列。</li>
+        <li><code>System.Action repaintCallback</code> – 入力変化時の再描画処理。</li>
+        <li><code>string controlName</code> – GUIコントロール識別用の名前（省略可能）</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>string</code> – ユーザーが入力した検索フィルタ文字列を返します。
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>「初期設定」ウィンドウをUnityエディタ上に表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="OnEnable" data-labels="private">
+      <div class="method-header">OnEnable()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>ウィンドウが開かれたときに、チェック状態の初期化とトークンの読み込みを行います。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>ウィンドウ内のGUI描画およびページごとのUI表示、ページ遷移処理を行います。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="DrawFolderCreationPage" data-labels="private">
+      <div class="method-header">DrawFolderCreationPage()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>フォルダ作成ページを描画し、ユーザーがチェックしたフォルダを作成します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="DrawConfirmInstallPage" data-labels="private">
+      <div class="method-header">DrawConfirmInstallPage()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>Editor Coroutines パッケージのインストール確認画面を描画します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="DrawTokenInputPage" data-labels="private">
+      <div class="method-header">DrawTokenInputPage()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>GitHubトークンの入力欄と保存チェックボックスを描画します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="DrawDownloadPage" data-labels="private">
+      <div class="method-header">DrawDownloadPage()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>スクリプトのダウンロードボタン群と、Editor Coroutines 状態に応じた対応を表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="CreateSelectedFolders" data-labels="private">
+      <div class="method-header">CreateSelectedFolders()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>ユーザーがチェックしたフォルダを「Assets」ディレクトリに作成します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="IsEditorCoroutinesInstalled" data-labels="private">
+      <div class="method-header">IsEditorCoroutinesInstalled()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>Editor Coroutines パッケージが既にインストールされているかを確認します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>bool</code> – インストール済みなら true、そうでなければ false を返します。
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="InstallEditorCoroutines" data-labels="private">
+      <div class="method-header">InstallEditorCoroutines()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>Unity Package Manager を使って Editor Coroutines パッケージをインストールします。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="DownloadExtension" data-labels="private async">
+      <div class="method-header">DownloadExtension(url, scriptName)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span> <span class="mlabel">async</span>
+        </div>
+        <div class="description">
+          <p>指定されたGitHubリポジトリのスクリプトファイルをダウンロードし、Assets/Editor に保存します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string url</code> – スクリプトのURL。</li>
+        <li><code>string scriptName</code> – 保存するスクリプト名。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>async void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="SaveToken" data-labels="private">
+      <div class="method-header">SaveToken()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>GitHubトークンをファイルに保存します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="InitialSetup" data-method="LoadToken" data-labels="private">
+      <div class="method-header">LoadToken()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">InitialSetup</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>GitHubトークンをファイルから読み込み、githubToken 変数に代入します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ItemDatabaseEditor" data-method="OnEnable" data-labels="private">
+      <div class="method-header">OnEnable()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ItemDatabaseEditor</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>編集対象の ItemDatabase インスタンスをキャストして取得します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ItemDatabaseEditor" data-method="OnInspectorGUI" data-labels="public override">
+      <div class="method-header">OnInspectorGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ItemDatabaseEditor</span>
+          <span class="mlabel">public</span> <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>UnityのInspector上にカスタムGUIを描画し、アイテムの表示・編集・追加・削除機能を提供します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="LocalizationKeySelectorEditor" data-method="OnInspectorGUI" data-labels="public override">
+      <div class="method-header">OnInspectorGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">LocalizationKeySelectorEditor</span>
+          <span class="mlabel">public</span> <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>UnityのInspector上で LocalizationKeySelector のプロパティを表示・操作可能にするカスタムGUIを描画します。キーリストの更新、選択状態の表示などの機能があります。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="LocalizeComponent_TMProExtension" data-method="LocalizeTMProTextWithFontAssets" data-labels="static">
+      <div class="method-header">LocalizeTMProTextWithFontAssets(command)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">LocalizeComponent_TMProExtension</span>
+          <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>TextMeshProUGUI に LocalizedTmpFontEvent を追加し、テキストとフォントのローカライズ設定を自動で行うためのメニューコマンド。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>MenuCommand command</code> – Unity エディタでコンテキストメニューから呼び出されたときのコマンド情報</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="LocalizeComponent_TMProExtension" data-method="SetupForLocalizeString" data-labels="static">
+      <div class="method-header">SetupForLocalizeString(target)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">LocalizeComponent_TMProExtension</span>
+          <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>TextMeshProUGUI に LocalizedTmpFontEvent を追加し、フォントの更新イベント時に再描画されるように設定する。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>TextMeshProUGUI target</code> – ローカライズ対象となる TextMeshPro コンポーネント。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="LocalizeComponent_TMProExtension" data-method="SetupForLocalizeTmpFont" data-labels="static">
+      <div class="method-header">SetupForLocalizeTmpFont(target)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">LocalizeComponent_TMProExtension</span>
+          <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>TextMeshProUGUI に LocalizedTmpFontEvent を追加し、ローカライズ時に font プロパティが自動で更新されるようにする。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>TextMeshProUGUI target</code> – 対象の TextMeshPro コンポーネント。ここにイベントを設定し、ローカライズフォントの適用を自動化する。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ScenesAutoUpdater" data-method="UpdateBuildSettings" data-labels="public static MenuItem">
+      <div class="method-header">UpdateBuildSettings()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ScenesAutoUpdater</span>
+          <span class="mlabel">public</span>
+          <span class="mlabel">static</span>
+          <span class="mlabel">MenuItem</span>
+        </div>
+        <div class="description">
+          <p>指定された <code>Assets/Scenes/Build</code> 内の <code>.unity</code> シーンファイルをスキャンして、Unityの <code>EditorBuildSettings</code> に自動登録します。</p>
+          <ul>
+            <li><code>First</code> フォルダ内のシーンは優先的に並べられる</li>
+            <li>Unity エディタ起動時に自動で実行（<code>[InitializeOnLoad]</code>）</li>
+            <li>エディタメニュー: 拡張機能 > ビルド関係 > Scenes Auto Updater</li>
+          </ul>
+        </div>
+        <div class="ref">
+          初期化時にも実行されます（<code>static constructor</code>による）。
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ScenesAutoUpdater" data-method="constructor" data-labels="static constructor">
+      <div class="method-header">ScenesAutoUpdater() [static constructor]</div>
+      <div class="method-content">
+          <span class="clabel">ScenesAutoUpdater</span>
         <span class="mlabel">static</span>
-        <span class="mlabel">MenuItem</span>
+        <span class="mlabel">constructor</span>
+        <div class="description">
+          <p>Unityエディタが起動したタイミングで <code>UpdateBuildSettings()</code> を自動実行します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
       </div>
-      <div class="description">
-        <p>Unity のメニューに「Animation Creator」を追加し、ウィンドウを表示します。</p>
+    </div>
+
+    <div class="method-block" data-class="AudioFileManager" data-method="ShowWindow" data-labels="public static MenuItem">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AudioFileManager</span>
+          <span class="mlabel">public</span>
+          <span class="mlabel">static</span>
+          <span class="mlabel">MenuItem</span>
+        </div>
+        <div class="description">
+          <p>Unity のウィンドウメニューに「Audio File Manager」を追加し、選択時にウィンドウを表示します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
       </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
+    </div>
+
+    <div class="method-block" data-class="ScriptableObjectCreator" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ScriptableObjectCreator</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Unity エディタのメニューから Scriptable Object Creator ウィンドウを開きます。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ScriptableObjectCreator" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ScriptableObjectCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>ウィンドウに表示される GUI を描画し、スクリプト名の入力や変数追加などの操作を提供します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ScriptableObjectCreator" data-method="CreateScriptableObjectScript" data-labels="private">
+      <div class="method-header">CreateScriptableObjectScript()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ScriptableObjectCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>入力されたクラス名と変数情報をもとに、ScriptableObject 派生の C# スクリプトファイルを Assets/ に生成します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ScriptableObjectCreator" data-method="VariableType" data-labels="private enum">
+      <div class="method-header">VariableType()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ScriptableObjectCreator</span>
+          <span class="mlabel">private</span> <span class="mlabel">enum</span>
+        </div>
+        <div class="description">
+          <p>ScriptableObject に追加できる変数型（int, float, string, bool）を列挙します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="ScriptableObjectCreator" data-method="VariableInfo" data-labels="private class">
+      <div class="method-header">VariableInfo(name, type)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">ScriptableObjectCreator</span>
+          <span class="mlabel">private</span> <span class="mlabel">class</span>
+        </div>
+        <div class="description">
+          <p>変数の名前と型を保持するデータ構造で、GUI で定義された変数の情報を格納します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string name</code> – 変数名</li>
+        <li><code>VariableType type</code> – 変数の型</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteAnimationCreator" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteAnimationCreator</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Unity メニューからスプライトアニメーション作成ウィンドウを開きます。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteAnimationCreator" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteAnimationCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>ウィンドウ内のGUI要素を描画し、ユーザー操作を受け付けます（スプライトの追加、パラメータ入力、ボタン操作など）。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteAnimationCreator" data-method="CreateAnimation" data-labels="private">
+      <div class="method-header">CreateAnimation()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteAnimationCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>入力されたスプライトと設定パラメータをもとに、AnimationClip を生成してプロジェクトに保存します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteAnimationCreator" data-method="ResetFields" data-labels="private">
+      <div class="method-header">ResetFields()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteAnimationCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>入力されたすべての設定値（スプライトリスト、再生設定など）を初期状態にリセットします。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteSheetCreator" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteSheetCreator</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Unity メニューから「Sprite Sheet Creator」ウィンドウを開きます。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteSheetCreator" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteSheetCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>スプライトシート作成ツールのGUIを描画し、ユーザーの入力や操作を受け付けます。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteSheetCreator" data-method="HandleDragAndDrop" data-labels="private">
+      <div class="method-header">HandleDragAndDrop(dropArea)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteSheetCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>画像ファイルのドラッグアンドドロップ処理を受け付け、Texture2D の配列に保存します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>Rect dropArea</code> – ドロップ処理を検出する矩形領域。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="SpriteSheetCreator" data-method="CreateSpriteSheet" data-labels="private">
+      <div class="method-header">CreateSpriteSheet()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">SpriteSheetCreator</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>ドロップされた画像を 1 枚のスプライトシートにまとめ、PNG ファイルとして保存します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TextureMaxSizeChanger" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TextureMaxSizeChanger</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>Unity メニューから「Texture MaxSize Changer」ウィンドウを開きます。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TextureMaxSizeChanger" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TextureMaxSizeChanger</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>テクスチャの最大サイズを一括変更するための GUI を描画します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TextureMaxSizeChanger" data-method="ChangeMaxSize" data-labels="private">
+      <div class="method-header">ChangeMaxSize()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TextureMaxSizeChanger</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定されたフォルダ、またはプロジェクト全体のテクスチャに対し、MaxSize を一括で変更します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TilemapPrefabBrush" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TilemapPrefabBrush</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>タイルマップ上にプレハブを配置するためのエディタウィンドウを表示します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TilemapPrefabBrush" data-method="OnGUI" data-labels="private">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TilemapPrefabBrush</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>プレハブ、タイルマップ、ブラシサイズ、密度の設定を行うためのインスペクターUIを描画します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TilemapPrefabBrush" data-method="OnEnable" data-labels="private">
+      <div class="method-header">OnEnable()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TilemapPrefabBrush</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>SceneView イベントハンドラを登録し、エディタ中の操作に対応します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TilemapPrefabBrush" data-method="OnDisable" data-labels="private">
+      <div class="method-header">OnDisable()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TilemapPrefabBrush</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>SceneView イベントハンドラの登録を解除します。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TilemapPrefabBrush" data-method="OnSceneGUI" data-labels="private">
+      <div class="method-header">OnSceneGUI(sceneView)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TilemapPrefabBrush</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>Sceneビュー上でマウスの位置に応じてタイルを検出し、左クリックでプレハブを配置します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>SceneView sceneView</code> – 現在操作中の SceneView。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TilemapPrefabBrush" data-method="PlacePrefabsInArea" data-labels="private">
+      <div class="method-header">PlacePrefabsInArea(centerTilePosition)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TilemapPrefabBrush</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定されたタイル位置を中心とした範囲に、ランダムなオフセットでプレハブを複数配置します。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>Vector3Int centerTilePosition</code> – 配置の中心となるタイル座標。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="TransformEditor" data-method="OnInspectorGUI" data-labels="public override">
+      <div class="method-header">OnInspectorGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">TransformEditor</span>
+          <span class="mlabel">public</span> <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>Transform コンポーネントのカスタムインスペクターを描画し、Position・Rotation・Scale を表示・編集・リセットできるようにします。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="UITextExplorer" data-method="ShowWindow" data-labels="public static">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">UITextExplorer</span>
+          <span class="mlabel">public</span> <span class="mlabel">static</span>
+        </div>
+        <div class="description">
+          <p>このウィンドウを Unity エディタのメニューから開く。拡張機能/テキスト関係/UITextExplorer に登録される。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="UITextExplorer" data-method="OnGUI" data-labels="private override">
+      <div class="method-header">OnGUI()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">UITextExplorer</span>
+          <span class="mlabel">private</span> <span class="mlabel">override</span>
+        </div>
+        <div class="description">
+          <p>Editor ウィンドウの GUI を定義する。フォルダパスの入力、拡張子の選択、探索の実行ボタン、保存ボタンなどを描画。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="UITextExplorer" data-method="ExploreUIText" data-labels="private">
+      <div class="method-header">ExploreUIText()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">UITextExplorer</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>現在のシーン内にあるすべての UI.Text と TextMeshProUGUI コンポーネントの .text プロパティからユニークな文字を抽出する。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="UITextExplorer" data-method="ExploreScriptTexts" data-labels="private">
+      <div class="method-header">ExploreScriptTexts()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">UITextExplorer</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定されたフォルダ内のスクリプトファイル（.cs, .txt, .csv, など）から文字列（""で囲まれた文字列や単語）を抽出し、ユニーク文字として収集する。/Editor/ フォルダ内は無視。</p>
+        </div>
+        <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="UITextExplorer" data-method="AddUniqueCharacters" data-labels="private">
+      <div class="method-header">AddUniqueCharacters(text)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">UITextExplorer</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>指定された文字列から空白文字を除いたユニークな文字だけを HashSet<char> に追加する。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string text</code> – ユニークな文字を抽出対象とする元の文字列。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+      </div>
+    </div>
+
+    <div class="method-block" data-class="UITextExplorer" data-method="SaveUniqueCharacters" data-labels="private">
+      <div class="method-header">SaveUniqueCharacters(extension)</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">UITextExplorer</span>
+          <span class="mlabel">private</span>
+        </div>
+        <div class="description">
+          <p>現在収集されているユニーク文字を指定形式でファイルとして保存する。ファイル選択ダイアログが表示され、1行に全ての文字が並ぶ形式。</p>
+        </div>
+        <div class="param-box">
+      <strong>引数:</strong>
+      <ul>
+        <li><code>string extension</code> – 保存するファイル形式を指定する拡張子。通常は "txt" または "csv" が指定されます。</li>
+      </ul>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
       </div>
     </div>
   </div>
 
-  <div class="method-block" data-class="AnimationCreator" data-method="OnGUI" data-labels="private override">
-    <div class="method-header">OnGUI()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AnimationCreator</span>
-        <span class="mlabel">private</span>
-        <span class="mlabel">override</span>
-      </div>
-      <div class="description">
-        <p>エディタウィンドウの GUI を描画。画像のドラッグ＆ドロップ、フレーム確認、アニメーション作成などの機能を提供します。</p>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AnimationCreator" data-method="CreateAnimation" data-labels="private">
-    <div class="method-header">CreateAnimation()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AnimationCreator</span>
-        <span class="mlabel">private</span>
-      </div>
-      <div class="description">
-        <p>登録された画像を元に、SpriteRenderer 用のアニメーションクリップ（.anim）を生成・保存します。</p>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AnimationCreator" data-method="ResetFields" data-labels="private">
-    <div class="method-header">ResetFields()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AnimationCreator</span>
-        <span class="mlabel">private</span>
-      </div>
-      <div class="description">
-        <p>フレームリストとフレームレートを初期化してリセットします。</p>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="ScenesAutoUpdater" data-method="UpdateBuildSettings" data-labels="public static MenuItem">
-    <div class="method-header">UpdateBuildSettings()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">ScenesAutoUpdater</span>
-        <span class="mlabel">public</span>
-        <span class="mlabel">static</span>
-        <span class="mlabel">MenuItem</span>
-      </div>
-      <div class="description">
-        <p>指定された <code>Assets/Scenes/Build</code> 内の <code>.unity</code> シーンファイルをスキャンして、Unityの <code>EditorBuildSettings</code> に自動登録します。</p>
-        <ul>
-          <li><code>First</code> フォルダ内のシーンは優先的に並べられる</li>
-          <li>Unity エディタ起動時に自動で実行（<code>[InitializeOnLoad]</code>）</li>
-          <li>エディタメニュー: 拡張機能 > ビルド関係 > Scenes Auto Updater</li>
-        </ul>
-      </div>
-      <div class="ref">
-        初期化時にも実行されます（<code>static constructor</code>による）。
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="ScenesAutoUpdater" data-method="constructor" data-labels="static constructor">
-    <div class="method-header">ScenesAutoUpdater() [static constructor]</div>
-    <div class="method-content">
-        <span class="clabel">ScenesAutoUpdater</span>
-      <span class="mlabel">static</span>
-      <span class="mlabel">constructor</span>
-      <div class="description">
-        <p>Unityエディタが起動したタイミングで <code>UpdateBuildSettings()</code> を自動実行します。</p>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AudioFileManager" data-method="ShowWindow" data-labels="public static MenuItem">
-    <div class="method-header">ShowWindow()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AudioFileManager</span>
-        <span class="mlabel">public</span>
-        <span class="mlabel">static</span>
-        <span class="mlabel">MenuItem</span>
-      </div>
-      <div class="description">
-        <p>Unity のウィンドウメニューに「Audio File Manager」を追加し、選択時にウィンドウを表示します。</p>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AudioFileManager" data-method="OnGUI" data-labels="private override">
-    <div class="method-header">OnGUI()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AudioFileManager</span>
-        <span class="mlabel">private</span>
-        <span class="mlabel">override</span>
-      </div>
-      <div class="description">
-        <p>エディタウィンドウの GUI を定義します。オーディオファイルの表示、タイトル編集、保存処理などを提供します。</p>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AudioFileManager" data-method="GetAudioFiles" data-labels="private">
-    <div class="method-header">GetAudioFiles()</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AudioFileManager</span>
-        <span class="mlabel">private</span>
-      </div>
-      <div class="description">
-        <p>指定されたフォルダ（およびオプションで子階層）内の .wav / .mp3 ファイルを取得し、リストに格納します。</p>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AudioFileManager" data-method="CombineArrays" data-labels="private">
-    <div class="method-header">CombineArrays(array1, array2)</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AudioFileManager</span>
-        <span class="mlabel">private</span>
-      </div>
-      <div class="description">
-        <p>2つの文字列配列を結合し、1つの配列として返します。</p>
-      </div>
-      <div class="param-box">
-        <strong>引数:</strong>
-        <ul>
-          <li><code>string[] array1</code> – 結合元の1つ目の文字列配列</li>
-          <li><code>string[] array2</code> – 結合元の2つ目の文字列配列</li>
-        </ul>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> 
-        <code>string[]</code> – 結合された文字列の配列
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AudioFileManager" data-method="GetAudioClipDuration" data-labels="private">
-    <div class="method-header">GetAudioClipDuration(filePath)</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AudioFileManager</span>
-        <span class="mlabel">private</span>
-      </div>
-      <div class="description">
-        <p>AudioClip をロードし、その再生時間（秒数）を取得します。</p>
-      </div>
-      <div class="param-box">
-        <strong>引数:</strong>
-        <ul>
-          <li><code>string filePath</code> – 調査対象の AudioClip のファイルパス（Assets パス）</li>
-        </ul>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> 
-        <code>float</code> – AudioClip の長さ（秒）。ロード失敗時は <code>0f</code> を返します。
-      </div>
-    </div>
-  </div>
-
-  <div class="method-block" data-class="AudioFileManager" data-method="SaveAudioTitle" data-labels="private">
-    <div class="method-header">SaveAudioTitle(filePath, newTitle)</div>
-    <div class="method-content">
-      <div>
-        <span class="clabel">AudioFileManager</span>
-        <span class="mlabel">private</span>
-      </div>
-      <div class="description">
-        <p>タイトルの変更をファイル名として反映させ、AssetDatabase 上でリネーム処理を行います。</p>
-      </div>
-      <div class="param-box">
-        <strong>引数:</strong>
-        <ul>
-          <li><code>string filePath</code> – 元のファイルパス</li>
-          <li><code>string newTitle</code> – 新しいファイル名（拡張子なし）</li>
-        </ul>
-      </div>
-      <div class="return-box">
-        <strong>戻り値:</strong> なし（<code>void</code>）
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // 折りたたみ機能
-    document.querySelectorAll('.method-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-
-    // 検索機能（クラス・メソッド・ラベル）
-    function filterReference() {
-      const classQuery = document.getElementById('classSearch').value.toLowerCase().trim();
-      const methodQuery = document.getElementById('methodSearch').value.toLowerCase().trim();
-      const labelQuery = document.getElementById('labelSearch').value.toLowerCase().trim();
-
-      document.querySelectorAll('.method-block').forEach(block => {
-        const className = block.getAttribute('data-class').toLowerCase();
-        const methodName = block.getAttribute('data-method').toLowerCase();
-        const labels = block.getAttribute('data-labels').toLowerCase();
-
-        const classMatch = classQuery === '' || className.includes(classQuery);
-        const methodMatch = methodQuery === '' || methodName.includes(methodQuery);
-        const labelMatch = labelQuery === '' || labels.includes(labelQuery);
-
-        if (classMatch && methodMatch && labelMatch) {
-          block.style.display = 'block';
-        } else {
-          block.style.display = 'none';
-        }
-      });
-    }
-
-    document.getElementById('classSearch').addEventListener('input', filterReference);
-    document.getElementById('methodSearch').addEventListener('input', filterReference);
-    document.getElementById('labelSearch').addEventListener('input', filterReference);
-  </script>
+  <script src="js/reference-filter.js"></script>
 
 </body>
 </html>
