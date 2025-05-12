@@ -42,7 +42,7 @@
         document.getElementById("outputHTML").textContent = "";
         methodCount = 0;
     }
-    
+
     let methodCount = 0;
 
     function addMethod() {
@@ -101,8 +101,11 @@
         const method = document.querySelector(`[name=methodName${i}]`).value.trim();
         const labels = document.querySelector(`[name=labels${i}]`).value.trim();
         const description = document.querySelector(`[name=description${i}]`).value.trim();
-        const returnType = document.querySelector(`[name=returnType${i}]`).value.trim();
-        const returnDescription = document.querySelector(`[name=returnDescription${i}]`).value.trim();
+        let returnType = document.querySelector(`[name=returnType${i}]`).value.trim();
+        let returnDescription = document.querySelector(`[name=returnDescription${i}]`).value.trim();
+
+        if (!returnType) returnType = "void";
+        if (!returnDescription) returnDescription = "なし";
 
         const params = [];
         let paramIndex = 1;
