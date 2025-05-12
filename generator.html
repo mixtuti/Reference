@@ -36,14 +36,14 @@
   <div class="output" id="outputHTML"></div>
 
   <script>
-    function resetForm() {
-        document.getElementById("className").value = "";
-        document.getElementById("methodsContainer").innerHTML = "";
-        document.getElementById("outputHTML").textContent = "";
-        methodCount = 0;
-    }
-
     let methodCount = 0;
+
+    function resetForm() {
+      document.getElementById("className").value = "";
+      document.getElementById("methodsContainer").innerHTML = "";
+      document.getElementById("outputHTML").textContent = "";
+      methodCount = 0;
+    }
 
     function addMethod() {
       methodCount++;
@@ -79,7 +79,7 @@
     function addParam(methodIndex) {
       const paramContainer = document.getElementById(`params-container${methodIndex}`);
       const paramCount = paramContainer.getElementsByClassName('param-item').length + 1;
-      
+
       const paramDiv = document.createElement("div");
       paramDiv.className = "param-item";
       paramDiv.id = `param-item${methodIndex}-${paramCount}`;
@@ -99,13 +99,16 @@
 
       for (let i = 1; i <= methodCount; i++) {
         const method = document.querySelector(`[name=methodName${i}]`).value.trim();
-        const labels = document.querySelector(`[name=labels${i}]`).value.trim();
+        const rawLabels = document.querySelector(`[name=labels${i}]`).value.trim();
         const description = document.querySelector(`[name=description${i}]`).value.trim();
         let returnType = document.querySelector(`[name=returnType${i}]`).value.trim();
         let returnDescription = document.querySelector(`[name=returnDescription${i}]`).value.trim();
 
         if (!returnType) returnType = "void";
         if (!returnDescription) returnDescription = "なし";
+
+        const labelList = rawLabels ? rawLabels.split(/\s+/) : ['private'];
+        const labelSpans = labelList.map(label => `<span class="mlabel">${label}</span>`).join(' ');
 
         const params = [];
         let paramIndex = 1;
@@ -119,10 +122,7 @@
           paramIndex++;
         }
 
-        // 引数を methodHeader の () 内に挿入
         const paramList = params.map(p => p.name).join(', ');
-
-        const labelSpans = labels.split(/\s+/).map(label => `<span class="mlabel">${label}</span>`).join(' ');
 
         const paramHTML = params.length > 0
           ? `<div class="param-box">\n  <strong>引数:</strong>\n  <ul>\n${params.map(p => {
@@ -133,7 +133,7 @@
         const returnHTML = `<div class="return-box">\n  <strong>戻り値:</strong> ${returnType ? `<code>${returnType}</code>` : "なし"} – ${returnDescription || "説明なし"}\n</div>`;
 
         const block = `
-<div class="method-block" data-class="${className}" data-method="${method}" data-labels="${labels}">
+<div class="method-block" data-class="${className}" data-method="${method}" data-labels="${labelList.join(' ')}">
   <div class="method-header">${method}(${paramList})</div>
   <div class="method-content">
     <div>
