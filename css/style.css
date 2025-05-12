@@ -23,10 +23,9 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* 全体スクロールを無効に */
+    overflow: hidden;
 }
 
-/* 固定する検索ボックス */
 .search-box {
     position: fixed;
     top: 0;
@@ -38,10 +37,9 @@ html, body {
     border-bottom: 1px solid #ccc;
 }
 
-/* スクロールされるメソッド一覧エリア */
 .scrollable-content {
     position: absolute;
-    top: 200px; /* .search-boxの高さ分ずらす */
+    top: 200px;
     bottom: 0;
     left: 0;
     right: 0;

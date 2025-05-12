@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>マンドラゴラコードリファレンス</title>
+  <meta charset="utf-8" />
+  <meta name="author" content="mixtuti" />
+  <!-- Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1abc9c" id="meta-theme-color" />
+  <meta property="og:url" content="https://mixtuti.github.io/Reference" />
+  <meta property="og:title" content="マンドラゴラ簡易リファレンス" />
+  <meta property="og:type" content="website" />
+  <meta name="”keywords”" content="マンドラゴラ、コード、リファレンス">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Stylesheets -->
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="search-box">
+        <h1>マンドラゴラ簡易リファレンス</h1>
+        🔍 クラス名:
+        <input type="text" id="classSearch" placeholder="例: ScenesAutoUpdater">
+        🔍 メソッド名:
+        <input type="text" id="methodSearch" placeholder="例: UpdateBuildSettings">
+        🔍 修飾子 / ラベル:
+        <input type="text" id="labelSearch" placeholder="例: static">
+    </div>
+  
+    <div class="scrollable-content">
+<div class="method-block" data-class="BreedingBedMoveAnime" data-method="BreedingBedMoveAnime" data-labels="public class">
+  <div class="method-header">BreedingBedMoveAnime()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBedMoveAnime</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>ベッド画像の移動を制御するクラス</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBedMoveAnime" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBedMoveAnime</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、SetStartPosition メソッドで初期設定を行い、playOnEnable が true ならアニメーションを非同期に開始します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBedMoveAnime" data-method="SetStartPosition" data-labels="private">
+  <div class="method-header">SetStartPosition()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBedMoveAnime</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>ターゲットオブジェクトの位置と透明度を初期状態に設定します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBedMoveAnime" data-method="PlayAnimationAsync" data-labels="public async">
+  <div class="method-header">PlayAnimationAsync()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBedMoveAnime</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>アニメーションを非同期で再生し、終了後に透明化と初期位置へのリセット、次のアクションを許可する処理を行います。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBedMoveAnime" data-method="OnDisable" data-labels="private">
+  <div class="method-header">OnDisable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBedMoveAnime</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが無効化された際に、ターゲット画像の透明度を元に戻します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBedMoveAnime" data-method="SetTransparency" data-labels="private">
+  <div class="method-header">SetTransparency(alpha)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBedMoveAnime</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>指定された透明度をターゲット画像に適用します。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>float alpha</code> – 適用したいアルファ値（0.0f: 完全透明、1.0f: 完全不透明）</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBuffManager" data-method="BreedingBuffManager" data-labels="public class">
+  <div class="method-header">BreedingBuffManager()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBuffManager</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>配合の成功確率についての設定を行う</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBuffManager" data-method="AddBuff" data-labels="public">
+  <div class="method-header">AddBuff(value)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBuffManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>配合ブースト値を加算。加算する値が負の数の場合は 0 に補正。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>float value</code> – 加算するブースト値</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBuffManager" data-method="LoadBuff" data-labels="public">
+  <div class="method-header">LoadBuff()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBuffManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>保存されている配合ブースト値をロード。保存されていない場合は 0f をデフォルト値としてロード。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBuffManager" data-method="SaveBuff" data-labels="public">
+  <div class="method-header">SaveBuff()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBuffManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>現在の配合ブースト値を保存します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBuffManager" data-method="ResetBuff" data-labels="public">
+  <div class="method-header">ResetBuff()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBuffManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>配合ブースト値を 0 にリセットして保存。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingBuffManager" data-method="GetBuff" data-labels="public">
+  <div class="method-header">GetBuff()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingBuffManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>現在の配合ブースト値を取得します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>float</code> – 現在の配合ブースト値
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirm" data-method="BreedingConfirm" data-labels="public class">
+  <div class="method-header">BreedingConfirm()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirm</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>選択肢に応じて処理を分岐させる</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirm" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirm</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、TMProOptionSelectorのボタン選択イベントを購読する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirm" data-method="OnDisable" data-labels="private">
+  <div class="method-header">OnDisable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirm</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが無効化された際に、購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirm" data-method="OnMainButtonSelected" data-labels="public">
+  <div class="method-header">OnMainButtonSelected(index)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirm</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>ボタンが選択された際に呼び出されるメソッド。選択されたボタンのインデックスに基づいて処理を分岐。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int index</code> – 選択されたボタンのインデックス (0から始まる)</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirm" data-method="NextState" data-labels="private">
+  <div class="method-header">NextState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirm</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>確認（YES）が選択された際の処理として、HandleConfirmKey メソッドを呼び出す。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingConfirm" data-method="PreviousState" data-labels="private">
+  <div class="method-header">PreviousState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingConfirm</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>キャンセル（NO）が選択された際の処理として、HandleCancelKey メソッドを呼び出します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+    </div>
+
+    <script src="js/reference-filter.js"></script>
+
+</body>
+</html>
