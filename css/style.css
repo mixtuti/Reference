@@ -1,3 +1,4 @@
+/* 全体の基本スタイル */
 body {
     font-family: sans-serif;
     background: #f4f4f4;
@@ -5,8 +6,40 @@ body {
     color: #333;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* ハンバーガーメニュー用 */
+.search-toggle {
+    display: none;
+    background: #007acc;
+    padding: 10px 15px;
+    color: white;
+    font-size: 1em;
+}
+
+.search-toggle button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+}
+
+/* 検索ボックス */
 .search-box {
-    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #f4f4f4;
+    padding: 20px;
+    z-index: 1000;
+    border-bottom: 1px solid #ccc;
 }
 
 input[type="text"] {
@@ -19,24 +52,7 @@ input[type="text"] {
     margin-bottom: 10px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.search-box {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #f4f4f4;
-    padding: 20px;
-    z-index: 1000;
-    border-bottom: 1px solid #ccc;
-}
-
+/* メインコンテンツ */
 .scrollable-content {
     position: absolute;
     top: 200px;
@@ -48,6 +64,7 @@ html, body {
     box-sizing: border-box;
 }
 
+/* メソッドブロック */
 .method-block {
     background: #fff;
     margin-bottom: 20px;
@@ -71,6 +88,7 @@ html, body {
     padding: 15px;
 }
 
+/* ラベル */
 .mlabel {
     display: inline-block;
     background-color: #007acc;
@@ -91,6 +109,7 @@ html, body {
     margin-right: 5px;
 }
 
+/* 説明など */
 .description, .ref {
     margin-top: 10px;
 }
@@ -104,6 +123,7 @@ html, body {
     text-decoration: underline;
 }
 
+/* パラメータ・戻り値 */
 .param-box, .return-box {
     background-color: #eef6ff;
     border-left: 4px solid #007acc;
@@ -117,4 +137,48 @@ html, body {
     display: inline-block;
     margin-bottom: 5px;
     color: #005b9f;
+}
+
+/* ─────────────────────────────
+   スマホ対応：ハンバーガーメニューと検索開閉
+────────────────────────────── */
+@media (max-width: 768px) {
+    /* ハンバーガーメニュー表示 */
+    .search-toggle {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+    }
+
+    /* 検索ボックスを非表示にし、ボタンで開閉 */
+    .search-box {
+        display: none;
+        position: fixed;
+        top: 50px; /* ボタンの下に表示 */
+        left: 0;
+        right: 0;
+        background: #f4f4f4;
+        padding: 15px;
+        z-index: 1000;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* 開いた状態 */
+    .search-box.active {
+        display: block;
+    }
+
+    /* スクロールコンテンツ位置調整 */
+    .scrollable-content {
+        top: 100px; /* ボタン + 検索フォームの合計高さに応じて調整 */
+    }
+
+    /* 入力幅を100%に */
+    input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+    }
 }
