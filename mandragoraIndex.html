@@ -856,28 +856,1312 @@
   </div>
 </div>
 
-<div class="method-block" data-class="BreedingResult" data-method="SaveLottly" data-labels="public">
-  <div class="method-header">SaveLottly(isLottly)</div>
+  <div class="method-block" data-class="BreedingResult" data-method="SaveLottly" data-labels="public">
+    <div class="method-header">SaveLottly(isLottly)</div>
+    <div class="method-content">
+      <div>
+        <span class="clabel">BreedingResult</span>
+        <span class="mlabel">public</span>
+      </div>
+      <div class="description">
+        <p>初回抽選フラグを保存し、配合の抽選を行います。</p>
+      </div>
+      <div class="param-box">
+        <strong>引数:</strong>
+        <ul>
+          <li><code>bool isLottly</code> – 初回抽選を行ったかどうかを示す真偽値。</li>
+        </ul>
+      </div>
+      <div class="return-box">
+        <strong>戻り値:</strong> <code>void</code> – なし
+      </div>
+    </div>
+  </div>
+
+  <div class="method-block" data-class="BreedingSelectionStateHandler" data-method="BreedingSelectionStateHandler" data-labels="public class">
+  <div class="method-header">BreedingSelectionStateHandler()</div>
   <div class="method-content">
     <div>
-      <span class="clabel">BreedingResult</span>
-      <span class="mlabel">public</span>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
     </div>
     <div class="description">
-      <p>初回抽選フラグを保存し、配合の抽選を行います。</p>
+      <p>アイテム選択状態（主に親となるマンドラゴラの選択）におけるユーザーの入力（決定・キャンセル）を処理し、インベントリUI の制御、アイテムの保存と削除、およびBreedingStateの遷移を管理。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingSelectionStateHandler" data-method="OnEnable" data-labels="private async">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、ボタンを無効化しアイテムデータが保存されている場合はロードする。イベントを購読する</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingSelectionStateHandler" data-method="OnDestroy" data-labels="private">
+  <div class="method-header">OnDestroy()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>イベント購読を解除する</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingSelectionStateHandler" data-method="HandleStateChanged" data-labels="private async">
+  <div class="method-header">HandleStateChanged(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>現在の State が targetState になると、インベントリUIを表示し、決定ボタンを一時的に無効化します。</p>
     </div>
     <div class="param-box">
   <strong>引数:</strong>
   <ul>
-    <li><code>bool isLottly</code> – 初回抽選を行ったかどうかを示す真偽値。</li>
+    <li><code>BreedingState newState</code> – 変更後のBreedingState</li>
   </ul>
 </div>
 <div class="return-box">
   <strong>戻り値:</strong> <code>void</code> – なし
 </div>
-    </div>
+  </div>
+</div>
 
-    <script src="js/reference-filter.js"></script>
+<div class="method-block" data-class="BreedingSelectionStateHandler" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム呼び出され、指定したステートの際に決定キーとキャンセルキーの入力を取得。取得されたキーによってメソッドを非同期で実行する</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingSelectionStateHandler" data-method="HandleCancelKey" data-labels="private async">
+  <div class="method-header">HandleCancelKey()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>キャンセルキーが押された際の処理を行う。前のBreedingStateに戻り、必要に応じて保存していたアイテムをインベントリに戻す。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingSelectionStateHandler" data-method="HandleConfirmKey" data-labels="private async">
+  <div class="method-header">HandleConfirmKey()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>決定キーが押された際の処理を行う。選択されたアイテムがマンドラゴラであるかを確認し、その情報を保存して次のBreedingStateへ遷移します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingSelectionStateHandler" data-method="GetItemData" data-labels="public">
+  <div class="method-header">GetItemData()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingSelectionStateHandler</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>アイテムデータを取得 (外部からアクセス用)。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>ItemData</code> – アイテムデータ
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStartStateHandler" data-method="BreedingStartStateHandler" data-labels="public class">
+  <div class="method-header">BreedingStartStateHandler()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStartStateHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>配合開始状態におけるユーザーの入力（決定・キャンセル）を処理し、関連するUIの表示/非表示の切り替えや、次のゲーム状態への遷移を管理する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStartStateHandler" data-method="Update" data-labels="private async">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStartStateHandler</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム呼び出され、現在の状態がターゲット状態であれば、入力に応じてキャンセルまたは決定処理を実行します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStartStateHandler" data-method="HandleCancelKey" data-labels="public">
+  <div class="method-header">HandleCancelKey()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStartStateHandler</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>キャンセルキーが押された際の処理を行います。配合UIを非表示にし、必要に応じてバッグUIを再表示、図鑑UIを非表示にし、プレイヤーの移動を有効にします。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStartStateHandler" data-method="HandleConfirmKey" data-labels="public">
+  <div class="method-header">HandleConfirmKey()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStartStateHandler</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>決定キーが押された際の処理を行う。インベントリUIと配合UIを表示し、ダイアログの次のノードをトリガーし、次のBreedingStateへ遷移。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingState" data-method="BreedingState" data-labels="public enum">
+  <div class="method-header">BreedingState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingState</span>
+      <span class="mlabel">public</span> <span class="mlabel">enum</span>
+    </div>
+    <div class="description">
+      <p>配合処理における様々な状態を定義。配合の進行状況やユーザーの操作に応じて遷移し、ゲームのロジックやUIの表示を制御するために使用。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="BreedingStateController" data-labels="public class">
+  <div class="method-header">BreedingStateController()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>配合処理全体の状態管理を行う。現在のBreedingStateを保持し、状態の変化を通知する機能、状態の保存とロード機能、および状態遷移時のクールダウン制御を提供。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="CurrentState" data-labels="public">
+  <div class="method-header">CurrentState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>現在のBreedingStateを取得および設定するためのプロパティ。設定時には、クールダウンを考慮して状態を変更するChangeStateWithCooldownメソッドを呼び出す。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>BreedingState</code> – 現在のステートを返す
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="ChangeStateWithCooldown" data-labels="private async">
+  <div class="method-header">ChangeStateWithCooldown(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>クールダウンを伴ってBreedingStateを変更する非同期メソッド。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 遷移先の BreedingState。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="ChangNoDelay" data-labels="public">
+  <div class="method-header">ChangNoDelay(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>クールダウンなしでBreedingStateを即座に変更するメソッド。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 遷移先の BreedingState。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="OnEnable" data-labels="private async">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、ステートのロードやUIの非表示をする。非同期でクールダウンも行う。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="OnDestroy" data-labels="private">
+  <div class="method-header">OnDestroy()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが無効化された際に、リソース解放する</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="SaveState" data-labels="public">
+  <div class="method-header">SaveState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>現在のBreedingStateを保存。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="LoadState" data-labels="public">
+  <div class="method-header">LoadState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>BreedingStateをロードします。ロードされたStateが許可されたリストに含まれていない場合は、強制的に Startに戻し、関連するアイテムやデータをクリア。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateController" data-method="ReturenItem" data-labels="private">
+  <div class="method-header">ReturenItem(saveKey)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateController</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>指定されたキーで保存されているアイテム IDをロードし、インベントリに1つ返却した後、保存データを削除する。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>string saveKey</code> – ロードおよび削除するアイテムIDのキー。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="BreedingStateUIHandler" data-labels="public class">
+  <div class="method-header">BreedingStateUIHandler()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p></p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="Start" data-labels="private">
+  <div class="method-header">Start()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スプライトの初期化、イベントの購読をシーン読み込み時に行う</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが有効になったときに、配合完了Stateまたは結果表示 Stateでないかどうかを確認し、Falseの時に画像を非表示にする</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="OnDestroy" data-labels="private">
+  <div class="method-header">OnDestroy()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>スクリプトが無効になった時に、イベントの購読を解除する</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="Update" data-labels="private async">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム呼び出され、指定したステートの際にキャンセルキーの入力を取得。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="HandleStateChanged" data-labels="private">
+  <div class="method-header">HandleStateChanged(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>ターゲットStateに遷移した場合はイメージの移動を開始し、キャンセルStateに遷移した場合はイメージの移動をキャンセルする。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 変更後の BreedingState</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="StartImageMovement" data-labels="public async">
+  <div class="method-header">StartImageMovement(sprite)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>Image の移動アニメーションを開始します。必要に応じて表示するスプライトを設定し、開始位置から終了位置へ移動させる。移動完了後にインベントリ UI を表示し、次の State へ遷移する。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>Sprite sprite</code> – 表示するスプライト (任意)</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="CancelImageMovement" data-labels="public async">
+  <div class="method-header">CancelImageMovement()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>Imageの移動アニメーションをキャンセルする。終了位置から開始位置へ移動させ、移動完了後にImageを非表示にし、インベントリUIを表示する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingStateUIHandler" data-method="HandleCancelKey" data-labels="private async">
+  <div class="method-header">HandleCancelKey()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingStateUIHandler</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>キャンセルキーが押された際の処理を行う。前のStateへ遷移し、インベントリUIを表示し、ターゲットイメージを非表示にする。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="BreedingTimeSaver" data-labels="public class">
+  <div class="method-header">BreedingTimeSaver()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>配合にかかる時間を管理し、ゲーム内時間に基づいてタイマーを表示、保存、ロードする。タイマーの初期設定、リセット、短縮、完了処理などを制御する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが有効になった際に、目標時間をロードまたは設定し、State の変更を監視してタイマーテキストの表示を制御する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="OnDestroy" data-labels="private">
+  <div class="method-header">OnDestroy()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが破棄される際に、R3 の購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="HandleStateChanged" data-labels="private">
+  <div class="method-header">HandleStateChanged(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>ターゲット State に遷移した場合はタイマーテキストを表示し、タイマーが停止していれば再開する。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 変更後の BreedingState</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム実行される Update メソッド。タイマーが動作中の場合はタイマー表示を更新し、キャンセルキーが押された場合は配合 UI を閉じてインベントリ UI を表示する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="LoadOrSetTargetTime" data-labels="private">
+  <div class="method-header">LoadOrSetTargetTime()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>保存されている目標時間をロードするか、存在しない場合は初期設定を行う。また、現在の時刻と比較して目標時間を過ぎている場合は、タイマーを完了状態する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="UpdateTimerDisplay" data-labels="private">
+  <div class="method-header">UpdateTimerDisplay()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>タイマーの表示を更新。残り日数と残り時間を計算し、timerTextに表示する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="TimerFinished" data-labels="private">
+  <div class="method-header">TimerFinished()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>タイマーが終了した際の処理を行う。完了エフェクトを表示し、次の Stateへ遷移し、タイマーの保存データを削除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="ResetTimer" data-labels="public">
+  <div class="method-header">ResetTimer(newHours)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>タイマーをリセットし、新しい配合時間に基づいて目標日時を設定し、タイマーを再開する。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int newHours</code> – 新しい配合時間（時間単位）。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="ClearTimer" data-labels="public">
+  <div class="method-header">ClearTimer()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>保存されているタイマー関連のデータをクリアし、タイマーを停止。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="SetInitialDurationHours" data-labels="public">
+  <div class="method-header">SetInitialDurationHours(newHours)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>初期配合時間を外部から設定するメソッド</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int newHours</code> – 新しい配合時間（時間単位）</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingTimeSaver" data-method="ReduceTimer" data-labels="public">
+  <div class="method-header">ReduceTimer(hoursToReduce)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingTimeSaver</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>配合時間を短縮するメソッド</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int hoursToReduce</code> – 短縮する時間（時間単位）</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingUIManagerTMPro" data-method="BreedingUIManagerTMPro" data-labels="public class">
+  <div class="method-header">BreedingUIManagerTMPro()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingUIManagerTMPro</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>TMProOptionSelector を使用した UI のボタン選択を処理し、選択結果に応じてBreedingStartStateHandlerの対応するメソッドを呼び出す。主に配合開始画面の YES/NO などの選択肢の処理を担う。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingUIManagerTMPro" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが有効になった際に、TMProOptionSelector の選択イベントを購読する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingUIManagerTMPro" data-method="OnDisable" data-labels="private">
+  <div class="method-header">OnDisable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが無効になった際に、イベントの購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingUIManagerTMPro" data-method="OnMainButtonSelected" data-labels="public">
+  <div class="method-header">OnMainButtonSelected(index)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingUIManagerTMPro</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>選択されたボタンのインデックスに基づいて、次の状態へ進むか前の状態へ戻るかを処理。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int index</code> – 選択されたボタンのインデックス (0から始まる)。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingUIManagerTMPro" data-method="NextState" data-labels="private">
+  <div class="method-header">NextState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>確認（YES）が選択された際の処理として、HandleConfirmKeyメソッドを呼び出します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingUIManagerTMPro" data-method="PreviousState" data-labels="private">
+  <div class="method-header">PreviousState()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>キャンセル（NO）が選択された際の処理として、HandleCancelKeyメソッドを呼び出します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingViewObject" data-method="BreedingViewObject" data-labels="public class">
+  <div class="method-header">BreedingViewObject()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingViewObject</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>BreedingStateController の状態変化を監視し、特定のStateになった際に、指定された targetObjectのアクティブ状態を遅延させて切り替える。主にUI要素やアニメーションの表示/非表示を制御するために使用。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingViewObject" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingViewObject</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが有効になった際に、BreedingStateController の状態変化を監視する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="BreedingViewObject" data-method="HandleStateChanged" data-labels="private">
+  <div class="method-header">HandleStateChanged(newState)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">BreedingViewObject</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>遅延処理を行うDelayHandleStateChangeAsyncメソッドを呼び出します。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>BreedingState newState</code> – 変更後の BreedingState</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ObjectInteraction" data-method="ObjectInteraction" data-labels="public class">
+  <div class="method-header">ObjectInteraction()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ObjectInteraction</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>プレイヤーが特定のオブジェクトとインタラクトするためのロジックを提供。トリガー範囲に入り、指定されたキーを押すことで、UI の表示/非表示の切り替えやプレイヤーの操作制御を行う。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ObjectInteraction" data-method="OnTriggerEnter2D" data-labels="private">
+  <div class="method-header">OnTriggerEnter2D(other)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ObjectInteraction</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>他の Collider2D がこの Collider2D のトリガー範囲内に入った際に呼び出されます。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>Collider2D other</code> – トリガーに入ってきた Collider2D。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ObjectInteraction" data-method="OnTriggerExit2D" data-labels="private">
+  <div class="method-header">OnTriggerExit2D(other)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ObjectInteraction</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>他の Collider2D がこの Collider2D のトリガー範囲外に出た際に呼び出されます。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>Collider2D other</code> – トリガーから出て行った Collider2D。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ObjectInteraction" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ObjectInteraction</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム実行される Update メソッド。プレイヤーのインタラクト範囲内でのキー入力を監視し、条件が満たされればインタラクションを実行する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ObjectInteraction" data-method="ShowUIAndDisablePlayerMovement" data-labels="private">
+  <div class="method-header">ShowUIAndDisablePlayerMovement()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ObjectInteraction</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>指定されたUIを表示し、プレイヤーの移動スクリプトを無効化する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="CameraFollow" data-method="CameraFollow" data-labels="public class">
+  <div class="method-header">CameraFollow()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">CameraFollow</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>プレイヤーを追従するカメラの挙動を制御します。スムーズな追従、経路上の移動制限、矩形範囲の移動制限機能を提供します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="CameraFollow" data-method="LateUpdate" data-labels="private">
+  <div class="method-header">LateUpdate()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">CameraFollow</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>レイヤーの位置に基づき、カメラをスムーズに追従させる。設定に応じて経路移動や範囲制限も考慮する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="CameraZoom" data-method="CameraZoom" data-labels="public class">
+  <div class="method-header">CameraZoom()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">CameraZoom</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>カメラのOrthographic Sizeを変更してズーム機能を制御します。DOTweenによるスムーズなアニメーションと、UniTaskによるキャンセル可能な非同期処理を提供します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="CameraZoom" data-method="Awake" data-labels="private">
+  <div class="method-header">Awake()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">CameraZoom</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>DOTween ライブラリを初期化します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="CameraZoom" data-method="Start" data-labels="private">
+  <div class="method-header">Start()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">CameraZoom</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>メインカメラの参照を取得し、Orthographic モードであることを確認します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="CameraZoom" data-method="Zoom" data-labels="public async">
+  <div class="method-header">Zoom(targetZoom, duration)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">CameraZoom</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>カメラのOrthographic Sizeを指定された値に、指定時間でアニメーションさせます。既に実行中のズームアニメーションがあればキャンセルされます。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>float targetZoom</code> – 目標のOrthographic Size</li>
+    <li><code>float duration</code> – アニメーションの所要時間（秒）</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>UniTask</code> – アニメーション完了まで待機可能なUniTask
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="CameraZoom" data-method="OnDestroy" data-labels="private">
+  <div class="method-header">OnDestroy()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">CameraZoom</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが破棄される際に、実行中のズームアニメーションとキャンセル処理を停止します。</p>
+    </div>
+    <div class="return-box">
+      <strong>戻り値:</strong> <code>void</code> – なし
+    </div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestBack" data-method="ContestBack" data-labels="public class">
+  <div class="method-header">ContestBack()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestBack</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>コンテスト関連のUIにおいて、キャンセル操作（cancelKey）が押された際にDialogueManagerを終了させる</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestBack" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestBack</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム実行される Update メソッド。キャンセルキーが押されたかどうかを監視し、押された場合はダイアログを終了させる。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestItemChoice" data-method="ContestItemChoice" data-labels="public class">
+  <div class="method-header">ContestItemChoice()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestItemChoice</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>コンテストに出品するアイテムの選択処理を管理します。インベントリUIからアイテムを選択し、それがマンドラゴラであるかを確認した後、選択されたアイテムのIDを保存し、ダイアログを次のノードへ進める。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestItemChoice" data-method="Update" data-labels="private">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestItemChoice</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>毎フレーム実行される Update メソッド。決定キーまたはキャンセルキーの入力を監視し、対応する処理を呼び出す。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestItemChoice" data-method="SelectItem" data-labels="private">
+  <div class="method-header">SelectItem()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestItemChoice</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>インベントリUIで選択されたアイテムを取得し、それがマンドラゴラであるかを確認した後、アイテムIDを保存し、インベントリからアイテムを減らし、ダイアログを次のノードへ進めます。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestItemChoice" data-method="BackDialog" data-labels="private">
+  <div class="method-header">BackDialog()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestItemChoice</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>ダイアログを特定のノード（ノード番号 9）に戻します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestSubmission" data-method="ContestSubmission" data-labels="public class">
+  <div class="method-header">ContestSubmission()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestSubmission</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>インベントリ内のアイテムが使用され、ダイアログがトリガーされる直前にそのアイテムをインベントリから削除する処理を行う。主にコンテストへのアイテム出品時に使用。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestSubmission" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestSubmission</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが有効になった際に、ダイアログトリガー直前のイベントを購読する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestSubmission" data-method="OnDisable" data-labels="private">
+  <div class="method-header">OnDisable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestSubmission</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが無効になった際に、イベントの購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestSubmission" data-method="EventHandler" data-labels="private">
+  <div class="method-header">EventHandler(itemData)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestSubmission</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>InventoryActionHandler からダイアログトリガー直前に呼び出されるイベントハンドラー。受け取ったアイテムデータを基に、インベントリからそのアイテムを1つ削除します。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>ItemData itemData</code> – アイテムのデータ</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+</div>
+
+<script src="js/reference-filter.js"></script>
 
 </body>
 </html>
