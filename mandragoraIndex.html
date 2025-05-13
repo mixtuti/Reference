@@ -2159,6 +2159,436 @@
   </div>
 </div>
 
+<div class="method-block" data-class="ContestUIManagerTMPro" data-method="ContestUIManagerTMPro" data-labels="public class">
+  <div class="method-header">ContestUIManagerTMPro()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMPro</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>TMProOptionSelector を使用したコンテスト関連の選択肢 UI のボタン選択を処理し、選択結果に応じて DialogueManager の対応するメソッドを呼び出す。主にコンテストへの参加確認などの YES/NO 選択肢の処理を担う。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMPro" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが有効になった際に、TMProOptionSelector の選択イベントを購読する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMPro" data-method="OnDisable" data-labels="private">
+  <div class="method-header">OnDisable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが無効になった際に、イベントの購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMPro" data-method="OnMainButtonSelected" data-labels="public">
+  <div class="method-header">OnMainButtonSelected(index)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMPro</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>選択されたボタンのインデックスに基づいて、YES または NO の処理を行います。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int index</code> – 選択されたボタンのインデックス (0から始まる)。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMPro" data-method="ChoiceYes" data-labels="private">
+  <div class="method-header">ChoiceYes()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>YES の選択肢が選ばれた際の処理として、TriggerNextDialogueNodeメソッドを呼び出し、ダイアログを次のノードへ進めます。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMPro" data-method="ChoiceNO" data-labels="private">
+  <div class="method-header">ChoiceNO()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMPro</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>NO の選択肢が選ばれた際の処理として、EndDialogue メソッドを呼び出し、現在のダイアログを終了させます。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMProSecond" data-method="ContestUIManagerTMProSecond" data-labels="public class">
+  <div class="method-header">ContestUIManagerTMProSecond()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMProSecond</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>TMProOptionSelector を使用したコンテスト関連の第二の選択肢 UI のボタン選択を処理し、選択結果に応じてDialogueManagerの対応するメソッドを呼び出す。主にコンテストの進行に関する追加の選択肢の処理を担う。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMProSecond" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMProSecond</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが有効になった際に、TMProOptionSelector のボタン選択イベントを購読する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMProSecond" data-method="OnDisable" data-labels="private">
+  <div class="method-header">OnDisable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMProSecond</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>コンポーネントが無効になった際に、イベントの購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMProSecond" data-method="OnMainButtonSelected" data-labels="public">
+  <div class="method-header">OnMainButtonSelected(index)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMProSecond</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>選択されたボタンのインデックスに基づいて、「託す」または「自分で」の処理を行います。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int index</code> – 選択されたボタンのインデックス (0から始まる)。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMProSecond" data-method="ChoiceEntrust" data-labels="private">
+  <div class="method-header">ChoiceEntrust()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMProSecond</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>「託す」の選択肢が選ばれた際の処理として、TriggerNextDialogueNode メソッドを呼び出し、ダイアログを次のノードへ進める。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="ContestUIManagerTMProSecond" data-method="ChoiceMySelf" data-labels="private">
+  <div class="method-header">ChoiceMySelf()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">ContestUIManagerTMProSecond</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>「自分で」の選択肢が選ばれた際の処理として、SetDialogueNode メソッドを呼び出し、ダイアログを特定のノードへ遷移させる。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="DialogueManager" data-labels="public class">
+  <div class="method-header">DialogueManager()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">public</span> <span class="mlabel">class</span>
+    </div>
+    <div class="description">
+      <p>会話の管理を行うクラス。会話の開始、終了、テキストの表示、オブジェクトの制御を行います。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="CurrentNodeIndex" data-labels="public">
+  <div class="method-header">CurrentNodeIndex()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>現在の会話ノードのインデックスを取得します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>int</code> – 現在の会話ノードのインデックス
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="IsDialogueEnded" data-labels="public">
+  <div class="method-header">IsDialogueEnded()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>現在ダイアログが終了しているかどうかを取得します。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>bool</code> – 終了していれば true、それ以外は false。
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="OnEnable" data-labels="private">
+  <div class="method-header">OnEnable()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>会話開始時の初期化処理</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="OnLocaleChanged" data-labels="private">
+  <div class="method-header">OnLocaleChanged(newLocale)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>ローカライズ設定が変更された際に呼び出されるコールバック関数。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>Locale newLocale</code> – 新しいロケール情報。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="UpdateDialogueText" data-labels="private async">
+  <div class="method-header">UpdateDialogueText()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>現在のノードのローカライズされたテキストを取得し、ダイアログ UI を更新。また、ノードに関連付けられた ViewObject の表示/非表示、フラグの設定、オートプレイの開始なども行う。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTaskVoid</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="SetBubbleImage" data-labels="private">
+  <div class="method-header">SetBubbleImage(sprite)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>ダイアログの吹き出しイメージを設定。指定されたスプライトをdialogueBubbleImageに適用します。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>Sprite sprite</code> – 設定する吹き出しのスプライト。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="SetDialogueNode" data-labels="public">
+  <div class="method-header">SetDialogueNode(index)</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">public</span>
+    </div>
+    <div class="description">
+      <p>指定されたインデックスのダイアログノードへ直接遷移し、ダイアログテキストを更新。</p>
+    </div>
+    <div class="param-box">
+  <strong>引数:</strong>
+  <ul>
+    <li><code>int index</code> – 遷移先のダイアログノードのインデックス。</li>
+  </ul>
+</div>
+<div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="OnDestroy" data-labels="private">
+  <div class="method-header">OnDestroy()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">private</span>
+    </div>
+    <div class="description">
+      <p>イベントの購読を解除する。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="TriggerNextDialogueNode" data-labels="public async">
+  <div class="method-header">TriggerNextDialogueNode()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>外部からの要求に応じて、次のダイアログノードへ進行。現在のノードが外部トリガーを必要とする場合でも、強制的に次のノードへ進む。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTask</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="AdvanceDialogue" data-labels="private async">
+  <div class="method-header">AdvanceDialogue()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>次のダイアログノードへ進行する処理を行う。現在のノードに遷移先のインデックスが設定されている場合はそのノードへ移動し、endDialogueフラグがtrueの場合は会話を終了させる。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>UniTask</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="EndDialogue" data-labels="public async">
+  <div class="method-header">EndDialogue()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">public</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>現在のダイアログを終了させる処理を行う。終了フラグを設定し、ダイアログUI要素を非表示にし、必要に応じてカメラのズームアウトやプレイヤーの操作を復帰させる。</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
+<div class="method-block" data-class="DialogueManager" data-method="Update" data-labels="private async">
+  <div class="method-header">Update()</div>
+  <div class="method-content">
+    <div>
+      <span class="clabel">DialogueManager</span>
+      <span class="mlabel">private</span> <span class="mlabel">async</span>
+    </div>
+    <div class="description">
+      <p>入力を受け付けて会話を進める</p>
+    </div>
+    <div class="return-box">
+  <strong>戻り値:</strong> <code>void</code> – なし
+</div>
+  </div>
+</div>
+
 </div>
 
 <script src="js/reference-filter.js"></script>
