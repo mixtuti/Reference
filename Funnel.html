@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>コードリファレンス</title>
+  <meta charset="utf-8" />
+  <meta name="author" content="mixtuti" />
+  <!-- Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1abc9c" id="meta-theme-color" />
+  <meta property="og:url" content="https://mixtuti.github.io/Reference" />
+  <meta property="og:title" content="コードリファレンス" />
+  <meta property="og:type" content="website" />
+  <meta name="”keywords”" content="コード、リファレンス">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Stylesheets -->
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="search-toggle">
+    <button id="menu-toggle">☰ 検索</button>
+  </div>
+  
+  <div class="search-box">
+    <h1>コードリファレンス</h1>
+    🔍 クラス名:
+    <input type="text" id="classSearch" placeholder="例: ScenesAutoUpdater">
+    🔍 メソッド名:
+    <input type="text" id="methodSearch" placeholder="例: UpdateBuildSettings">
+    🔍 修飾子 / ラベル:
+    <input type="text" id="labelSearch" placeholder="例: static">
+  </div>
+
+  <div class="scrollable-content">
+    <div class="method-block" data-class="AnimationCreator" data-method="ShowWindow" data-labels="public static MenuItem">
+      <div class="method-header">ShowWindow()</div>
+      <div class="method-content">
+        <div>
+          <span class="clabel">AnimationCreator</span>
+          <span class="mlabel">public</span>
+          <span class="mlabel">static</span>
+          <span class="mlabel">MenuItem</span>
+        </div>
+        <div class="description">
+          <p>Unity のメニューに「Animation Creator」を追加し、ウィンドウを表示します。</p>
+        </div>
+        <div class="return-box">
+          <strong>戻り値:</strong> なし（<code>void</code>）
+        </div>
+      </div>
+    </div>
+
+  <script src="js/reference-filter.js"></script>
+
+</body>
+</html>
